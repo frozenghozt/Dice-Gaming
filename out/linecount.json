@@ -1,0 +1,435 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "c:\\Users\\diogo\\Desktop\\skooli",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2020-09-22 13:58:59",
+            "filesum": 69,
+            "codesum": 23324,
+            "commentsum": 84,
+            "blanksum": 4999,
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": ".env"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "client\\.gitignore"
+                },
+                {
+                    "blank": 2,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "client\\package.json"
+                },
+                {
+                    "filename": "client\\public\\favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "client\\public\\index.html"
+                },
+                {
+                    "filename": "client\\public\\logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client\\public\\logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "client\\public\\manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "client\\public\\robots.txt"
+                },
+                {
+                    "blank": 19,
+                    "code": 25,
+                    "comment": 6,
+                    "filename": "client\\README.md"
+                },
+                {
+                    "blank": 10,
+                    "code": 69,
+                    "comment": 0,
+                    "filename": "client\\src\\App.tsx"
+                },
+                {
+                    "filename": "client\\src\\assets\\avatar.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "client\\src\\assets\\Card.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "client\\src\\assets\\Chips.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "client\\src\\assets\\coins.svg"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Balance\\Balance.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Balance\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Body\\Body.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Body\\styles.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Chat\\Chat.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Chat\\styles.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Game\\Game.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Game\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\GameButton\\GameButton.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\GameButton\\styles.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\GameTable\\GameTable.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\GameTable\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Header\\Header.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 55,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Header\\styles.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 1,
+                    "filename": "client\\src\\Components\\InfoButton\\InfoButton.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\InfoButton\\styles.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 148,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\LoginRegister\\LoginRegister.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\LoginRegister\\styles.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\MatchCreator\\MatchCreator.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\MatchCreator\\styles.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Navbar\\Navbar.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Navbar\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\NavProfile\\NavProfile.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\NavProfile\\styles.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Portal\\Portal.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Portal\\styles.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Sidebar\\Sidebar.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Sidebar\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\SignIn\\Signin.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\SignIn\\styles.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\SignOut\\SignOut.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\SignOut\\styles.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\TableRow\\styles.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\TableRow\\TableRow.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Wallet\\styles.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client\\src\\Components\\Wallet\\Wallet.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client\\src\\context\\UserContext.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client\\src\\hooks\\useOnClickOutside.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client\\src\\index.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 154,
+                    "comment": 0,
+                    "filename": "client\\src\\obj\\datatest.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "client\\src\\react-app-env.d.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 48,
+                    "comment": 0,
+                    "filename": "client\\src\\styled\\GlobalStyles.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "client\\tsconfig.json"
+                },
+                {
+                    "blank": 2130,
+                    "code": 9318,
+                    "comment": 31,
+                    "filename": "client\\yarn-error.log"
+                },
+                {
+                    "blank": 2140,
+                    "code": 9345,
+                    "comment": 30,
+                    "filename": "client\\yarn.lock"
+                },
+                {
+                    "blank": 5,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "middleware\\auth.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "models\\coinflipModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "models\\userModel.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 27,
+                    "code": 154,
+                    "comment": 0,
+                    "filename": "routes\\router.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "server.js"
+                },
+                {
+                    "blank": 256,
+                    "code": 1442,
+                    "comment": 6,
+                    "filename": "yarn-error.log"
+                },
+                {
+                    "blank": 263,
+                    "code": 1485,
+                    "comment": 6,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}
