@@ -112,6 +112,10 @@ io.on("connect", async (socket) => {
   });
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 app.use("/", router);
 
 const PORT = process.env.PORT || 5000;
