@@ -76,14 +76,6 @@ router.post("/tokenIsValid", async (req, res) => {
   }
 });
 
-router.get("/", auth, async (req, res) => {
-  const user = await User.findById(req.user);
-  res.json({
-    displayName: user.displayName,
-    id: user._id,
-  });
-});
-
 router.post("/register", async (req, res) => {
   try {
     const { email, password, passwordCheck, username } = req.body;
