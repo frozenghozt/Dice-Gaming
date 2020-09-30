@@ -32,7 +32,7 @@ interface BetShape {
   winChance: any;
 }
 
-const socket = io("http://localhost:5000");
+const socket = io("https://dicebet.herokuapp.com/");
 
 const DicePanel = () => {
   // User Context with token and usename.

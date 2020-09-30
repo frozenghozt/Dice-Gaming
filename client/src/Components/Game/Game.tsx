@@ -8,7 +8,7 @@ import DicePanel from "../DicePanel/DicePanel";
 
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://dicebet.herokuapp.com/");
 
 const Game: React.FC = () => {
   const [bets, setBets] = useState<Array<{}>>([]);
