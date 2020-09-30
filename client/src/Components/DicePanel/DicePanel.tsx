@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import io from "socket.io-client";
+import { motion } from "framer-motion";
 import UserContext from "../../context/UserContext";
 import {
   Container,
@@ -17,9 +18,10 @@ import {
   Slider,
   BarReference,
   TopBar,
-  RollSlick,
+  SpanNumber,
   Button,
 } from "./styles";
+import DiceImage from "../../assets/dice.svg";
 
 interface BetShape {
   username: any;
@@ -48,7 +50,7 @@ const DicePanel = () => {
   });
 
   // Luckynumber will set here after getting server response.
-  const [luckyNumber, setLuckyNumber] = useState(null);
+  const [luckyNumber, setLuckyNumber] = useState<[number, boolean] | []>([]);
 
   // Sets the username on the bet state for sucessfull post request.
   useEffect(() => {
@@ -57,7 +59,7 @@ const DicePanel = () => {
 
   useEffect(() => {
     const setLucky = (roll: any) => {
-      setLuckyNumber(roll.result);
+      setLuckyNumber([roll.result, roll.isWinner]);
     };
 
     socket.on("roll", setLucky);
@@ -151,10 +153,10 @@ const DicePanel = () => {
                 value={bet.betAmount}
               />
               <button onClick={betDivideBy2}>
-                <span>%</span>
+                <i className="gg-math-percent"></i>
               </button>
               <button onClick={betMultiplyBy2}>
-                <span>X</span>
+                <i className="gg-close" />
               </button>
             </span>
           </Bet>
@@ -217,9 +219,26 @@ const DicePanel = () => {
                 right: bet.rollside === "over" ? "auto" : "0",
               }}
             />
-            <RollSlick style={{ left: `calc(${luckyNumber}% - 15px)` }}>
-              <span>{luckyNumber}</span>
-            </RollSlick>
+            <motion.div
+              animate={{ x: `${luckyNumber[0]}%` }}
+              transition={{ ease: "easeOut", duration: 0.5 }}
+              initial={false}
+              style={{
+                position: "absolute",
+                width: "100%",
+                left: "-30px",
+                color: luckyNumber[1] ? "#00e449" : "#f10260",
+                zIndex: "var(--high)",
+                bottom: "10px",
+                height: "55px",
+              }}
+            >
+              {luckyNumber[0] && (
+                <SpanNumber style={{ backgroundImage: `url(${DiceImage})` }}>
+                  {luckyNumber[0]}
+                </SpanNumber>
+              )}
+            </motion.div>
           </BarReference>
         </SliderWrapper>
         <Button onClick={rollDice}>ROLL DICE</Button>

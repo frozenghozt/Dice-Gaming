@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const diceBetSchema = new mongoose.Schema({
   game: { type: String, required: true },
-  user: { type: String, required: true },
+  user: { type: String },
   time: { type: String, required: true },
   bet: { type: Number, required: true },
   payout: { type: Number, required: true },

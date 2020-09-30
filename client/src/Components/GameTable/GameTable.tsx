@@ -23,20 +23,22 @@ const GameTable = ({ data, displaybets }: Props) => {
         </HeaderRow>
       </thead>
       <tbody>
-        {data.map(({ game, user, time, bet, payout, result, profit }, i) =>
-          i < displaybets ? (
-            <TableRow
-              key={i}
-              game={game}
-              user={user}
-              time={time}
-              bet={bet}
-              payout={payout}
-              result={result}
-              profit={profit}
-              background={i % 2 === 0}
-            />
-          ) : null
+        {data.map(
+          ({ game, user, time, bet, payout, result, profit, isWinner }, i) =>
+            i < displaybets ? (
+              <TableRow
+                key={i}
+                game={game}
+                user={user}
+                time={time}
+                bet={bet}
+                payout={payout}
+                result={result}
+                profit={profit}
+                background={i % 2 === 0}
+                iswinner={isWinner}
+              />
+            ) : null
         )}
       </tbody>
     </Container>

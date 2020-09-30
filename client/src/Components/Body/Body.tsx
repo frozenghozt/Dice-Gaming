@@ -10,7 +10,9 @@ const Body: React.FC = () => {
     <Container>
       <Wrapper>
         <Game />
-        <Route path="/" render={() => LoginRegister} />
+        <Route path="/">
+          <LoginRegister />
+        </Route>
       </Wrapper>
     </Container>
   );

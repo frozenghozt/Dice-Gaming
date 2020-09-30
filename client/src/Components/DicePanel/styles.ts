@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 30px 25px;
   border-radius: 5px;
-  background: white;
+  background: #313448;
   overflow: hidden;
   @media (min-width: 1024px) {
     width: 100%;
@@ -39,11 +39,12 @@ export const Bet = styled.div`
     justify-content: space-evenly;
     border-radius: 3px;
     input {
-      padding: 9px 10px;
+      padding: 11px 10px;
       font-weight: 600;
-      color: #555;
+      color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.08);
       width: 100%;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      /* border: 1px solid rgba(255, 255, 255, 0.08); */
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
       text-align: center;
@@ -53,12 +54,16 @@ export const Bet = styled.div`
       }
     }
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 100%;
+      color: rgba(255, 255, 255, 0.8);
       min-width: 37px;
-      background-color: rgba(0, 0, 0, 0.08);
+      background-color: rgba(255, 255, 255, 0.08);
       cursor: pointer;
       &:hover {
-        background-color: rgba(0, 0, 0, 0.15);
+        background-color: rgba(255, 255, 255, 0.15);
       }
       &:nth-last-child(1) {
         border-top-right-radius: 4px;
@@ -74,11 +79,11 @@ export const ProfitOnWin = styled.div`
   flex-direction: column;
   padding: 0px 8px;
   input {
-    padding: 10px;
+    padding: 11px 10px;
     font-weight: 600;
-    color: #555;
+    color: rgba(255, 255, 255, 0.8);
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.08);
     text-align: center;
     border-radius: 4px;
     font-size: 15px;
@@ -94,7 +99,7 @@ export const Title = styled.div`
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: rgb(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 export const Wrapper = styled.div`
@@ -106,7 +111,7 @@ export const Wrapper = styled.div`
 export const WrapperTwo = styled.div`
   display: flex;
   width: calc(100% - 16px);
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 10px 5px;
   border-radius: 3px;
 `;
@@ -124,10 +129,10 @@ export const RollOver = styled.div`
       text-align: center;
       padding: 10px;
       font-weight: 600;
-      color: #555;
+      color: rgba(255, 255, 255, 0.8);
       width: 100%;
       border-radius: 4px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.08);
       font-size: 15px;
       &:focus {
         outline: none;
@@ -136,7 +141,7 @@ export const RollOver = styled.div`
     i {
       position: absolute;
       right: 12px;
-      color: #666;
+      color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
     }
   }
@@ -155,10 +160,10 @@ export const Payout = styled.div`
       text-align: center;
       padding: 10px 40px;
       font-weight: 600;
-      color: #555;
+      color: rgba(255, 255, 255, 0.8);
       width: 100%;
       border-radius: 4px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.08);
       font-size: 15px;
       &:focus {
         outline: none;
@@ -167,7 +172,7 @@ export const Payout = styled.div`
     i {
       position: absolute;
       right: 12px;
-      color: #666;
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 `;
@@ -185,10 +190,10 @@ export const WinChance = styled.div`
       text-align: center;
       padding: 10px 40px;
       font-weight: 600;
-      color: #555;
+      color: rgba(255, 255, 255, 0.8);
       width: 100%;
       border-radius: 4px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.08);
       font-size: 15px;
       &:focus {
         outline: none;
@@ -197,7 +202,7 @@ export const WinChance = styled.div`
     i {
       position: absolute;
       right: 12px;
-      color: #666;
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 `;
@@ -208,12 +213,12 @@ export const TitleTwo = styled.div`
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: rgb(0, 0, 0, 0.7);
+  color: rgb(255, 255, 255, 0.7);
 `;
 
 export const SliderWrapper = styled.div`
   width: calc(100% - 16px);
-  margin: 55px 0px 30px;
+  margin: 80px 0px 30px;
 `;
 
 export const Slider = styled.input`
@@ -221,7 +226,7 @@ export const Slider = styled.input`
   top: 0;
   appearance: none;
   width: 100%;
-  height: 7px;
+  height: 9px;
   cursor: pointer;
   z-index: var(--high);
   &:focus {
@@ -233,7 +238,7 @@ export const BarReference = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 8px;
+  height: 9px;
   border-radius: 100px;
   background-color: #00e449;
   left: 0;
@@ -242,26 +247,18 @@ export const BarReference = styled.div`
 
 export const TopBar = styled.div`
   position: absolute;
-  height: 8px;
+  height: 9px;
   border-radius: 100px;
   background-color: #f10260;
 `;
 
-export const RollSlick = styled.div`
-  position: absolute;
-  width: 100%;
-  left: calc(0% - 15px);
-  z-index: var(--high);
-  bottom: 10px;
-  height: 33px;
-  > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    height: 30px;
-    width: 30px;
-  }
+export const SpanNumber = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 55px;
+  width: 55px;
 `;
 
 export const Button = styled.button`
@@ -270,6 +267,6 @@ export const Button = styled.button`
   border-radius: 5px;
   font-size: 14px;
   color: white;
-  background-color: var(--darktwo);
+  background-color: #272a3e;
   cursor: pointer;
 `;

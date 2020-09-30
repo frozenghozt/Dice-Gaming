@@ -50,9 +50,15 @@ io.on("connect", async (socket) => {
     let isWinner;
     if (rollside === "over") {
       //Profit
-      betProfit = Number(
-        ((betAmount * (100 / (100 - rollLimit)) - betAmount) * 0.99).toFixed(8)
-      );
+      betProfit =
+        luckyNumber > rollLimit
+          ? Number(
+              (
+                (betAmount * (100 / (100 - rollLimit)) - betAmount) *
+                0.99
+              ).toFixed(8)
+            )
+          : betAmount;
       //Payout
       betPayout = Math.round((100 / (100 - rollLimit)) * 1000) / 1000;
       //Winchance
@@ -61,9 +67,10 @@ io.on("connect", async (socket) => {
       isWinner = luckyNumber > rollLimit;
     } else if (rollside === "under") {
       //Profit
-      betProfit = ((betAmount * (100 / rollLimit) - betAmount) * 0.99).toFixed(
-        8
-      );
+      betProfit =
+        luckyNumber < rollLimit
+          ? ((betAmount * (100 / rollLimit) - betAmount) * 0.99).toFixed(8)
+          : betAmount;
       //Payout
       betPayout = Math.round((100 / rollLimit) * 1000) / 1000;
       //Winchance

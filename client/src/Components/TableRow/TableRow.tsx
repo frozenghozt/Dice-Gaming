@@ -10,6 +10,7 @@ interface Props {
   result: number;
   profit: number;
   background: boolean;
+  iswinner: boolean;
 }
 
 const TableRow = ({
@@ -21,6 +22,7 @@ const TableRow = ({
   result,
   profit,
   background,
+  iswinner,
 }: Props) => {
   return (
     <React.Fragment>
@@ -31,7 +33,7 @@ const TableRow = ({
         <td>{bet}</td>
         <td>{payout}</td>
         <td>{result}</td>
-        <td>{profit}</td>
+        <td style={{ color: iswinner ? "#00ff15" : "#fa3b2d" }}>{profit}</td>
       </BodyRow>
     </React.Fragment>
   );
