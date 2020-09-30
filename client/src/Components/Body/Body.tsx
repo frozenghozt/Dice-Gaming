@@ -1,18 +1,18 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import { Container, Wrapper } from "./styles";
 
 import LoginRegister from "../LoginRegister/LoginRegister";
 import Game from "../Game/Game";
 
 const Body: React.FC = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
   return (
     <Container>
       <Wrapper>
         <Game />
-        <Route path="/">
-          <LoginRegister />
-        </Route>
+        {params.get("login") && <LoginRegister />}
       </Wrapper>
     </Container>
   );

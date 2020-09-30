@@ -26,7 +26,7 @@ const Game: React.FC = () => {
     };
 
     socket.on("bets", setState);
-  }, [socket]);
+  }, []);
 
   const chooseMyBets = () => {
     setActiveTable("My Bets");
