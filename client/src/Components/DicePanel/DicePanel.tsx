@@ -50,7 +50,9 @@ const DicePanel = () => {
   });
 
   // Luckynumber will set here after getting server response.
-  const [luckyNumber, setLuckyNumber] = useState<[number, boolean] | []>([]);
+  const [luckyNumber, setLuckyNumber] = useState<
+    [number | null, boolean | null] | []
+  >([null, null]);
 
   // Sets the username on the bet state for sucessfull post request.
   useEffect(() => {
@@ -220,8 +222,10 @@ const DicePanel = () => {
               }}
             />
             <motion.div
-              animate={{ x: `${luckyNumber[0]}%` }}
-              transition={{ ease: "easeOut", duration: 0.5 }}
+              animate={{
+                x: luckyNumber[0] === null ? 0 : `${luckyNumber[0]}%`,
+              }}
+              transition={{ ease: "easeOut", duration: 0.3 }}
               initial={false}
               style={{
                 position: "absolute",
