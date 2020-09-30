@@ -34,7 +34,6 @@ io.on("connect", async (socket) => {
     // Gets luckynumber
     const luckyNumber = Number((Math.random() * 100).toFixed(2));
 
-    // Gets bet time.
     let betDate = new Date();
     var hour = String(betDate.getHours());
     var min =
