@@ -23,6 +23,8 @@ const Game: React.FC = () => {
   }, [socket]);
 
   useEffect(() => {
+    if (!username) return;
+
     axios
       .get(`/dice/${activeTable}/${username}/${displayNum}`)
       .then((res) => setAllBets(res.data))

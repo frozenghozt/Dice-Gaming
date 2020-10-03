@@ -127,10 +127,6 @@ router.get("/dice/:activetable/:username/:displaynum", async (req, res) => {
   try {
     const { activetable, username, displaynum } = req.params;
 
-    if (username === undefined) {
-      res.json([]);
-    }
-
     if (activetable === "mybets") {
       const bet = await DiceBet.find({ user: `${username}` })
         .sort({ _id: -1 })
