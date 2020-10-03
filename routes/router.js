@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const DiceBet = require("../models/dicebetModel");
 const User = require("../models/userModel");
+const ChatMessage = require("../models/chatmessageModel");
 
 router.get("/users", auth, async (req, res) => {
   const user = await User.findById(req.user);
@@ -122,10 +123,39 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/dice", async (req, res) => {
+router.get("/dice/:activetable/:username/:displaynum", async (req, res) => {
   try {
-    const bet = await DiceBet.find().sort({ _id: -1 }).limit(10);
-    res.json(bet);
+    const { activetable, username, displaynum } = req.params;
+
+    if (username === undefined) {
+      res.json([]);
+    }
+
+    if (activetable === "mybets") {
+      const bet = await DiceBet.find({ user: `${username}` })
+        .sort({ _id: -1 })
+        .limit(parseInt(displaynum))
+        .exec();
+      res.json(bet);
+    }
+
+    if (activetable === "allbets") {
+      const bet = await DiceBet.find()
+        .sort({ _id: -1 })
+        .limit(parseInt(displaynum));
+      res.json(bet);
+    }
+  } catch (err) {
+    res.status(500).json((err) => {
+      error: err.message;
+    });
+  }
+});
+
+router.get("/chat", async (req, res) => {
+  try {
+    const messages = await ChatMessage.find().sort({ _id: -1 }).limit(20);
+    res.json(messages);
   } catch (err) {
     res.status(500).json((err) => {
       error: err.message;

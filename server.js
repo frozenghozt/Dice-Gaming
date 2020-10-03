@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 const router = require("./routes/router");
 const DiceBet = require("./models/dicebetModel");
+const ChatMessage = require("./models/chatmessageModel");
 
 const app = express();
 app.use(express.json());
@@ -28,6 +29,21 @@ mongoose.connect(
 );
 
 io.on("connect", async (socket) => {
+  socket.on("chat", (msg) => {
+    const { user, message } = msg;
+
+    const newMessage = new ChatMessage({
+      user: user,
+      message: message,
+    });
+
+    newMessage.save();
+
+    io.emit("chat", {
+      user,
+      message,
+    });
+  });
   socket.on("roll", (bet) => {
     const { username, betAmount, rollLimit, rollside } = bet;
 
@@ -51,12 +67,10 @@ io.on("connect", async (socket) => {
       //Profit
       betProfit =
         luckyNumber > rollLimit
-          ? Number(
-              (
-                (betAmount * (100 / (100 - rollLimit)) - betAmount) *
-                0.99
-              ).toFixed(8)
-            )
+          ? (
+              (betAmount * (100 / (100 - rollLimit)) - betAmount) *
+              0.99
+            ).toFixed(8)
           : betAmount;
       //Payout
       betPayout = Math.round((100 / (100 - rollLimit)) * 1000) / 1000;
@@ -105,7 +119,7 @@ io.on("connect", async (socket) => {
       isWinner: isWinner,
     });
 
-    io.emit("bets", {
+    io.emit("allbets", {
       game: "Dice",
       user: username,
       time: betDate,
