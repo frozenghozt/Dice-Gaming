@@ -40,8 +40,8 @@ io.on("connect", async (socket) => {
     newMessage.save();
 
     io.emit("chat", {
-      user,
-      message,
+      user: user,
+      message: message,
     });
   });
   socket.on("roll", (bet) => {
