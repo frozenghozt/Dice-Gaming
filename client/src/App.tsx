@@ -39,7 +39,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState<UserState>({ token: null, user: null });
 
   useEffect(() => {
-    setSocket(io("http://localhost:5000"));
+    setSocket(io("https://dicebet.herokuapp.com/"));
   }, []);
 
   useEffect(() => {

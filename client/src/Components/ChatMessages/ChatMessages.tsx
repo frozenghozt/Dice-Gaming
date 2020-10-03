@@ -8,7 +8,6 @@ interface Props {
 }
 
 const ChatMessages = ({ data }: Props) => {
-  console.log(data);
   return (
     <Container>
       {data.map(({ user, message }, i) => (
