@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./styled/GlobalStyles";
 
 import Header from "./Components/Header/Header";
-import Sidebar from "./Components/Sidebar/Sidebar";
 import Body from "./Components/Body/Body";
 import Chat from "./Components/Chat/Chat";
 import UserContext from "./context/UserContext";
+import SocketContext from "./context/SocketContext";
 import Axios from "axios";
+
+import io from "socket.io-client";
 
 export const AppWrapper = styled.div`
   display: flex;
@@ -33,9 +35,14 @@ interface UserState {
 }
 
 const App: React.FC = () => {
+  const [socket, setSocket] = useState<any>();
   const [user, setUser] = useState<UserState>({ token: null, user: null });
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setSocket(io("http://localhost:5000"));
+  }, []);
+
+  useEffect(() => {
     const checkLoggedIn = async () => {
       let token: string | null = localStorage.getItem("auth-token");
       if (token === null) {
@@ -67,9 +74,10 @@ const App: React.FC = () => {
           <AppWrapper>
             <Header />
             <StructureWrapper>
-              <Sidebar />
-              <Body />
-              <Chat />
+              <SocketContext.Provider value={socket}>
+                <Body />
+                <Chat />
+              </SocketContext.Provider>
             </StructureWrapper>
           </AppWrapper>
         </UserContext.Provider>

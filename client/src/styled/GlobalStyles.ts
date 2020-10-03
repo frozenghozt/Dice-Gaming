@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     font-family: 'Titillium Web', sans-serif;
     background: rgb(31,34,54);
-background: radial-gradient(circle, rgba(40,43,66,1) 0%, rgba(31,34,54,1) 100%);
+    background: radial-gradient(circle, rgba(40,43,66,1) 0%, rgba(31,34,54,1) 100%);
     font-size: 15px;
   }
 

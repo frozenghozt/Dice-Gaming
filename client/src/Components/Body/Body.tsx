@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Container, Wrapper } from "./styles";
 
 import LoginRegister from "../LoginRegister/LoginRegister";

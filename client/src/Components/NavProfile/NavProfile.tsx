@@ -9,7 +9,7 @@ const NavProfile = () => {
   return (
     <Container>
       <ProfileImg style={{ backgroundImage: `url(${Avatar})` }}></ProfileImg>
-      {userData?.user.user === null ? <span>{userData?.user.user}</span> : null}
+      <span>{userData?.user.user?.username}</span>
     </Container>
   );
 };

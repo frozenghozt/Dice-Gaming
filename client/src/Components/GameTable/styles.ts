@@ -4,6 +4,7 @@ export const Container = styled.table`
   width: 100%;
   height: 100%;
   color: rgba(255, 255, 255, 0.85);
+  max-width: 1100px;
 `;
 
 export const HeaderRow = styled.tr`

@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import io from "socket.io-client";
 import { motion } from "framer-motion";
-import UserContext from "../../context/UserContext";
 import {
   Container,
   Content,
@@ -23,6 +21,9 @@ import {
 } from "./styles";
 import DiceImage from "../../assets/dice.svg";
 
+import UserContext from "../../context/UserContext";
+import SocketContext from "../../context/SocketContext";
+
 interface BetShape {
   username: any;
   betAmount: any;
@@ -32,12 +33,11 @@ interface BetShape {
   winChance: any;
 }
 
-const socket = io("https://dicebet.herokuapp.com/");
-
 const DicePanel = () => {
-  // User Context with token and usename.
+  const [socket, setSocket] = useState<any>(null);
   const data = useContext(UserContext);
   const user = data?.user.user?.username;
+  const SocketData = useContext(SocketContext);
 
   // Bet state for post request. Must have username, betAmount, rollside and rollLimit for sucessful post request.
   const [bet, setBet] = useState<BetShape>({
@@ -50,9 +50,11 @@ const DicePanel = () => {
   });
 
   // Luckynumber will set here after getting server response.
-  const [luckyNumber, setLuckyNumber] = useState<
-    [number | null, boolean | null] | []
-  >([null, null]);
+  const [luckyNumber, setLuckyNumber] = useState<[number, boolean] | []>([]);
+
+  useEffect(() => {
+    setSocket(SocketData);
+  }, [socket]);
 
   // Sets the username on the bet state for sucessfull post request.
   useEffect(() => {
@@ -60,12 +62,13 @@ const DicePanel = () => {
   }, [user]);
 
   useEffect(() => {
+    if (!socket) return;
+
     const setLucky = (roll: any) => {
       setLuckyNumber([roll.result, roll.isWinner]);
     };
-
     socket.on("roll", setLucky);
-  }, []);
+  }, [socket]);
 
   // Profit, Payout and Winchance logic for input values.
   const inputvals = {
@@ -223,10 +226,9 @@ const DicePanel = () => {
             />
             <motion.div
               animate={{
-                x: luckyNumber[0] === null ? 0 : `${luckyNumber[0]}%`,
+                x: luckyNumber[0] === undefined ? 0 : `${luckyNumber[0]}%`,
               }}
               transition={{ ease: "easeOut", duration: 0.3 }}
-              initial={false}
               style={{
                 position: "absolute",
                 width: "100%",

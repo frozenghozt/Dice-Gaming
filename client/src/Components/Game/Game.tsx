@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Container, GameButtons } from "./styles";
 
@@ -6,38 +6,63 @@ import GameButton from "../GameButton/GameButton";
 import GameTable from "../GameTable/GameTable";
 import DicePanel from "../DicePanel/DicePanel";
 
-import io from "socket.io-client";
-
-const socket = io("https://dicebet.herokuapp.com/");
+import UserContext from "../../context/UserContext";
+import SocketContext from "../../context/SocketContext";
 
 const Game: React.FC = () => {
-  const [bets, setBets] = useState<Array<{}>>([]);
+  const [socket, setSocket] = useState<any>(null);
+  const [allbets, setAllBets] = useState<Array<{}>>([]);
   const [displayNum, setDisplayNum] = useState(10);
-  const [activeTable, setActiveTable] = useState("My bets");
+  const [activeTable, setActiveTable] = useState("mybets");
+  const UserData = useContext(UserContext);
+  const SocketData = useContext(SocketContext);
+  const username = UserData?.user.user?.username;
+
+  useEffect(() => {
+    setSocket(SocketData);
+  }, [socket]);
 
   useEffect(() => {
     axios
-      .get("dice")
-      .then((res) => setBets(res.data))
+      .get(`/dice/${activeTable}/${username}/${displayNum}`)
+      .then((res) => setAllBets(res.data))
       .catch((err) => console.log(err));
+  }, [username, activeTable, displayNum]);
 
-    const setState = (newbet: any) => {
-      setBets((bets) => [newbet, ...bets]);
+  useEffect(() => {
+    if (!socket) return;
+
+    const allBetsFunc = (newbet: any) => {
+      if (activeTable === "allbets") {
+        setAllBets((allbets) => [newbet, ...allbets]);
+      }
     };
 
-    socket.on("bets", setState);
-  }, []);
+    socket.on("allbets", allBetsFunc);
+  }, [socket]);
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const allBetsFunc = (newbet: any) => {
+      if (activeTable === "mybets") {
+        setAllBets((allbets) => [newbet, ...allbets]);
+      }
+    };
+
+    socket.on("roll", allBetsFunc);
+  }, [socket]);
 
   const chooseMyBets = () => {
-    setActiveTable("My Bets");
+    setActiveTable("mybets");
   };
 
   const chooseAllBets = () => {
-    setActiveTable("All bets");
+    setActiveTable("allbets");
   };
 
   const chooseHighRollers = () => {
-    setActiveTable("High Rollers");
+    setActiveTable("highrollers");
   };
 
   return (
@@ -49,7 +74,7 @@ const Game: React.FC = () => {
         <GameButton opener={chooseHighRollers}>High rollers</GameButton>
         <GameButton>10</GameButton>
       </GameButtons>
-      <GameTable data={bets} displaybets={displayNum} />
+      <GameTable data={allbets} displaybets={displayNum} />
     </Container>
   );
 };

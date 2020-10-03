@@ -29,6 +29,7 @@ export const GameButtons = styled.div`
   align-items: center;
   padding: 20px 0;
   margin-top: 35px;
+  max-width: 1100px;
   > button {
     margin-right: 12px;
     &:nth-last-child(1) {
