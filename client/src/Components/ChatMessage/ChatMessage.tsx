@@ -1,11 +1,6 @@
 import React from "react";
-import {
-  Container,
-  LeftContainer,
-  RightContainer,
-  Username,
-  Message,
-} from "./styles";
+import { motion } from "framer-motion";
+import { LeftContainer, RightContainer, Username, Message } from "./styles";
 import DefaultImage from "../../assets/avatar.png";
 
 interface Props {
@@ -15,7 +10,17 @@ interface Props {
 
 const ChatMessage = ({ username, message }: Props) => {
   return (
-    <Container>
+    <motion.div
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeOut", duration: 0.4 }}
+      style={{
+        display: "flex",
+        width: "100%",
+        padding: "3px",
+        margin: "3px 0px",
+        opacity: "0",
+      }}
+    >
       <LeftContainer>
         <img src={DefaultImage} alt="defaultimg" />
       </LeftContainer>
@@ -23,7 +28,7 @@ const ChatMessage = ({ username, message }: Props) => {
         <Username>{username}</Username>
         <Message>{message}</Message>
       </RightContainer>
-    </Container>
+    </motion.div>
   );
 };
 

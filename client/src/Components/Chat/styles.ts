@@ -1,18 +1,28 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: none;
-  position: relative;
-  min-width: 350px;
-  max-width: 350px;
-  height: 100%;
-  @media (min-width: 1024px) {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  z-index: var(--veryhigh);
+  @media (min-width: 768px) {
+    position: relative;
     display: flex;
+    min-width: 300px;
+    max-width: 300px;
+    height: calc(100vh - 70px);
+  }
+  @media (min-width: 1024px) {
+    position: relative;
+    display: flex;
+    min-width: 350px;
+    max-width: 350px;
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   height: 100%;
   width: 100%;

@@ -36,8 +36,8 @@ interface BetShape {
 const DicePanel = () => {
   const [socket, setSocket] = useState<any>(null);
   const data = useContext(UserContext);
-  const user = data?.user.user?.username;
   const SocketData = useContext(SocketContext);
+  const user = data?.user.user?.username;
 
   // Bet state for post request. Must have username, betAmount, rollside and rollLimit for sucessful post request.
   const [bet, setBet] = useState<BetShape>({

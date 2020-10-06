@@ -2,8 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 15px 20px 15px;
+  @media (min-width: 768px) {
+    padding: 10px 10px 20px 10px;
+  }
 `;
 
 export const Wrapper = styled.form`

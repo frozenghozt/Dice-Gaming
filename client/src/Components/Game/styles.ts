@@ -25,7 +25,7 @@ export const InfoButtons = styled.div`
 
 export const GameButtons = styled.div`
   display: flex;
-  width: 100%;
+  width: 95%;
   align-items: center;
   padding: 20px 0;
   margin-top: 35px;

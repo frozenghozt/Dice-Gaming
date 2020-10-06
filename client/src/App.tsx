@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./styled/GlobalStyles";
 
+import LoadingPage from "./Components/LoadingPage/LoadingPage";
 import Header from "./Components/Header/Header";
 import Body from "./Components/Body/Body";
 import Chat from "./Components/Chat/Chat";
+
 import UserContext from "./context/UserContext";
 import SocketContext from "./context/SocketContext";
-import Axios from "axios";
 
 import io from "socket.io-client";
 
@@ -31,12 +33,15 @@ interface UserState {
   user: {
     id: string | undefined;
     username: string | undefined;
+    balance: number | undefined;
   } | null;
 }
 
 const App: React.FC = () => {
   const [socket, setSocket] = useState<any>();
   const [user, setUser] = useState<UserState>({ token: null, user: null });
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(true);
 
   useEffect(() => {
     setSocket(io("https://dicebet.herokuapp.com/"));
@@ -63,23 +68,32 @@ const App: React.FC = () => {
           user: userRes.data,
         });
       }
+      setIsLoading(false);
     };
     checkLoggedIn();
-  }, []);
+  }, [user.token]);
+
+  const chatOpener = () => {
+    setIsChatOpen(!isChatOpen);
+  };
 
   return (
     <React.Fragment>
       <BrowserRouter>
         <UserContext.Provider value={{ user, setUser }}>
-          <AppWrapper>
-            <Header />
-            <StructureWrapper>
-              <SocketContext.Provider value={socket}>
-                <Body />
-                <Chat />
-              </SocketContext.Provider>
-            </StructureWrapper>
-          </AppWrapper>
+          <SocketContext.Provider value={socket}>
+            {isLoading ? (
+              <LoadingPage />
+            ) : (
+              <AppWrapper>
+                <Header />
+                <StructureWrapper>
+                  <Body />
+                  {isChatOpen ? <Chat chatHandler={chatOpener} /> : null}
+                </StructureWrapper>
+              </AppWrapper>
+            )}
+          </SocketContext.Provider>
         </UserContext.Provider>
         <GlobalStyles />
       </BrowserRouter>

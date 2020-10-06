@@ -12,11 +12,9 @@ const SignOut: React.FC = () => {
   };
 
   return (
-    <div>
-      <Btn onClick={logout}>
-        <ExitToAppOutlinedIcon style={{ fontSize: "22px", color: "white" }} />
-      </Btn>
-    </div>
+    <Btn onClick={logout}>
+      <ExitToAppOutlinedIcon style={{ fontSize: "22px", color: "white" }} />
+    </Btn>
   );
 };
 

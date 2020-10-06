@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Container, ProfileImg } from "./styles";
+import { Container, Wrapper, ProfileImg } from "./styles";
+import SignOut from "../SignOut/SignOut";
+import SignIn from "../SignIn/Signin";
 import UserContext from "../../context/UserContext";
 
 import Avatar from "../../assets/avatar.png";
@@ -8,8 +10,15 @@ const NavProfile = () => {
   const userData = useContext(UserContext);
   return (
     <Container>
-      <ProfileImg style={{ backgroundImage: `url(${Avatar})` }}></ProfileImg>
-      <span>{userData?.user.user?.username}</span>
+      {userData?.user.user?.username ? (
+        <Wrapper>
+          <>
+            <ProfileImg style={{ backgroundImage: `url(${Avatar})` }} />
+            <span>{userData?.user.user?.username}</span>
+          </>
+          <SignOut />
+        </Wrapper>
+      ) : null}
     </Container>
   );
 };

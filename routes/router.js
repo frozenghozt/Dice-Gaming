@@ -11,6 +11,7 @@ router.get("/users", auth, async (req, res) => {
   res.json({
     username: user.username,
     id: user._id,
+    balance: user.balance,
   });
 });
 
@@ -112,6 +113,7 @@ router.post("/register", async (req, res) => {
       email,
       password: passwordHash,
       username,
+      balance: 0.0,
     });
 
     const savedUser = await newUser.save();

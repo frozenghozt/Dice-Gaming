@@ -6,6 +6,7 @@ require("dotenv").config();
 const router = require("./routes/router");
 const DiceBet = require("./models/dicebetModel");
 const ChatMessage = require("./models/chatmessageModel");
+const User = require("./models/userModel");
 
 const app = express();
 app.use(express.json());
@@ -44,7 +45,7 @@ io.on("connect", async (socket) => {
       message: message,
     });
   });
-  socket.on("roll", (bet) => {
+  socket.on("roll", async (bet) => {
     const { username, betAmount, rollLimit, rollside } = bet;
 
     // Gets luckynumber
@@ -67,10 +68,7 @@ io.on("connect", async (socket) => {
       //Profit
       betProfit =
         luckyNumber > rollLimit
-          ? (
-              (betAmount * (100 / (100 - rollLimit)) - betAmount) *
-              0.99
-            ).toFixed(8)
+          ? (betAmount * (100 / (100 - rollLimit)) - betAmount) * 0.99
           : betAmount;
       //Payout
       betPayout = Math.round((100 / (100 - rollLimit)) * 1000) / 1000;
@@ -82,7 +80,7 @@ io.on("connect", async (socket) => {
       //Profit
       betProfit =
         luckyNumber < rollLimit
-          ? ((betAmount * (100 / rollLimit) - betAmount) * 0.99).toFixed(8)
+          ? (betAmount * (100 / rollLimit) - betAmount) * 0.99
           : betAmount;
       //Payout
       betPayout = Math.round((100 / rollLimit) * 1000) / 1000;

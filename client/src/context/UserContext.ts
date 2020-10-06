@@ -6,6 +6,7 @@ interface UserProps {
     user: {
       id: string | undefined;
       username: string | undefined;
+      balance: number | undefined;
     } | null;
   };
   setUser: React.SetStateAction<any>;

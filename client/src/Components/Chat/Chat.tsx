@@ -4,10 +4,15 @@ import axios from "axios";
 
 import ChatMessages from "../ChatMessages/ChatMessages";
 import ChatSend from "../ChatSend/ChatSend";
+import ChatButton from "../ChatButton/ChatButton";
 
 import SocketContext from "../../context/SocketContext";
 
-const Chat: React.FC = () => {
+interface Props {
+  chatHandler: () => void;
+}
+
+const Chat = ({ chatHandler }: Props) => {
   const [socket, setSocket] = useState<any>(null);
   const [messages, setMessages] = useState<Array<{}>>([]);
   const SocketData = useContext(SocketContext);
@@ -34,9 +39,10 @@ const Chat: React.FC = () => {
 
   return (
     <Container>
-      <FadedDiv />
+      <ChatButton chatHandler={chatHandler} />
       <Wrapper>
         <ChatMessages data={messages} />
+        <FadedDiv />
         <ChatSend />
       </Wrapper>
     </Container>

@@ -12,7 +12,6 @@ import UserContext from "../../context/UserContext";
 import NavProfile from "../NavProfile/NavProfile";
 import Navbar from "../Navbar/Navbar";
 import Balance from "../Balance/Balance";
-import Wallet from "../Wallet/Wallet";
 import SignOut from "../SignOut/SignOut";
 import SignIn from "../SignIn/Signin";
 
@@ -22,14 +21,18 @@ const Header: React.FC = () => {
     <Container>
       <Wrapper>
         <LeftContainer>
-          <h1>skooli</h1>
+          <span>skooli</span>
         </LeftContainer>
         <CenterContainer>
           <Navbar />
           <ButtonsWrapper>
-            <Balance />
-            <Wallet />
-            {userData?.user.user === null ? <SignIn /> : <SignOut />}
+            {userData?.user.user === null ? (
+              <SignIn />
+            ) : (
+              <>
+                <Balance /> <SignOut />
+              </>
+            )}
           </ButtonsWrapper>
         </CenterContainer>
         <RightContainer>

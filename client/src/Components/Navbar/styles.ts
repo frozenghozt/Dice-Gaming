@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.ul`
-  display: flex;
+  display: none;
   flex: 1;
   justify-content: flex-start;
   align-items: center;
@@ -13,5 +13,8 @@ export const Container = styled.ul`
     span {
       cursor: pointer;
     }
+  }
+  @media (min-width: 1024px) {
+    display: flex;
   }
 `;
