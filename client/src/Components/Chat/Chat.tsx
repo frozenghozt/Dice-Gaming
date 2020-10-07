@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Container, Wrapper, FadedDiv } from "./styles";
 import axios from "axios";
 
+import ChatHeader from "../ChatHeader/ChatHeader";
 import ChatMessages from "../ChatMessages/ChatMessages";
 import ChatSend from "../ChatSend/ChatSend";
 import ChatButton from "../ChatButton/ChatButton";
@@ -41,6 +42,7 @@ const Chat = ({ chatHandler }: Props) => {
     <Container>
       <ChatButton chatHandler={chatHandler} />
       <Wrapper>
+        <ChatHeader chatHandler={chatHandler} />
         <ChatMessages data={messages} />
         <FadedDiv />
         <ChatSend />

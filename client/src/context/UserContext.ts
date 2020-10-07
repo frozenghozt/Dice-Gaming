@@ -4,9 +4,9 @@ interface UserProps {
   user: {
     token: string | null;
     user: {
-      id: string | undefined;
-      username: string | undefined;
-      balance: number | undefined;
+      id: string;
+      username: string;
+      balance: number;
     } | null;
   };
   setUser: React.SetStateAction<any>;

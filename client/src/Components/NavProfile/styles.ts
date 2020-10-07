@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-right: 15px;
   justify-content: space-between;
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
   > span {
     display: none;
     @media (min-width: 480px) {

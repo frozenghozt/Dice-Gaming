@@ -4,7 +4,6 @@ export const Container = styled.header`
   width: 100%;
   height: 60px;
   background-color: var(--darkone);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: var(--high);
   @media (min-width: 768px) {
     height: 70px;

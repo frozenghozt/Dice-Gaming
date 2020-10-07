@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: 100vh;
+  top: 0;
   z-index: var(--veryhigh);
   @media (min-width: 768px) {
     position: relative;

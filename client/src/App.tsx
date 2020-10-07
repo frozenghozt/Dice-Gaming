@@ -31,9 +31,9 @@ const StructureWrapper = styled.div`
 interface UserState {
   token: string | null;
   user: {
-    id: string | undefined;
-    username: string | undefined;
-    balance: number | undefined;
+    id: string;
+    username: string;
+    balance: number;
   } | null;
 }
 
