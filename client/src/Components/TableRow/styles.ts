@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const BodyRow = styled.tr`
   display: grid;
   grid-template-rows: 50px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-flow: column;
+  @media (min-width: 480px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
@@ -13,6 +16,12 @@ export const BodyRow = styled.tr`
     height: 100%;
     padding: 14px;
     text-align: center;
+    &:nth-child(1) {
+      display: none;
+      @media (min-width: 480px) {
+        display: block;
+      }
+    }
     &:nth-child(3) {
       display: none;
       @media (min-width: 1024px) {

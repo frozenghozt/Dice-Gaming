@@ -9,9 +9,12 @@ export const Container = styled.table`
 
 export const HeaderRow = styled.tr`
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 50px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-auto-flow: column;
+  @media (min-width: 480px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
@@ -23,6 +26,10 @@ export const HeaderRow = styled.tr`
     text-align: center;
     &:nth-child(1) {
       border-top-left-radius: 6px;
+      display: none;
+      @media (min-width: 480px) {
+        display: block;
+      }
     }
     &:nth-child(3) {
       display: none;

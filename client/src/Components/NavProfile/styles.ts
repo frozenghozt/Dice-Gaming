@@ -30,6 +30,9 @@ export const Wrapper = styled.div`
       display: none;
     }
   }
+  > div {
+    height: 40px;
+  }
 `;
 
 export const ProfileImg = styled.div`

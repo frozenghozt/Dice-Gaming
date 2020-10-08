@@ -18,7 +18,11 @@ const NavProfile = () => {
           </>
           <SignOut />
         </Wrapper>
-      ) : null}
+      ) : (
+        <Wrapper style={{ justifyContent: "flex-end" }}>
+          <SignIn />
+        </Wrapper>
+      )}
     </Container>
   );
 };

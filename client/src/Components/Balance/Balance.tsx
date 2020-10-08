@@ -9,7 +9,7 @@ const Balance: React.FC = () => {
   const UserData = useContext(UserContext);
   const SocketData = useContext(SocketContext);
   const [socket, setSocket] = useState<any>(null);
-  const [balance, setBalance] = useState<number>(0);
+  const [balance, setBalance] = useState<number | undefined>(0);
 
   useEffect(() => {
     setBalance(UserData?.user.user?.balance);

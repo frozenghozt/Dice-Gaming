@@ -28,8 +28,14 @@ export const GameButtons = styled.div`
   width: 95%;
   align-items: center;
   padding: 20px 0;
-  margin-top: 35px;
+  margin-top: 0;
   max-width: 1100px;
+  @media (min-width: 480px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 35px;
+  }
   > button {
     margin-right: 12px;
     &:nth-last-child(1) {

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import DiceImage from "../../assets/dice.svg";
 
 export const Container = styled.div`
   display: flex;
