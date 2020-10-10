@@ -4,5 +4,6 @@ Live webapp: https://dicebet.herokuapp.com/
 
 ### Login (If you wish to test the login system).
 
-username: admin&nbsp;
+username: admin
+
 password: admin321 
