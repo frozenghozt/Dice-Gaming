@@ -6,7 +6,10 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 30px 5vw;
+  @media (min-width: 480px) {
   padding: 55px 5vw;
+  }
 `;
 
 export const InfoButtons = styled.div`

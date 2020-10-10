@@ -1,20 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: absolute;
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  top: 0;
-  z-index: var(--veryhigh);
+  height: 100%;
+  z-index: 9999;
   @media (min-width: 768px) {
-    position: relative;
     display: flex;
     min-width: 300px;
     max-width: 300px;
     height: calc(100vh - 70px);
   }
   @media (min-width: 1024px) {
-    position: relative;
     display: flex;
     min-width: 350px;
     max-width: 350px;
@@ -23,7 +20,6 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
   height: 100%;
   width: 100%;

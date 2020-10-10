@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px 25px;
+  padding: 20px 15px;
   border-radius: 5px;
   background-color: #313448;
   overflow: hidden;
+  width: 100%;
+  @media (min-width: 480px) {
+    padding: 30px 25px;
+  }
   @media (min-width: 1024px) {
     width: 100%;
     max-width: 700px;
@@ -34,6 +38,10 @@ export const Bet = styled.div`
   flex: 1;
   flex-direction: column;
   padding: 0px 8px;
+  margin-bottom: 10px;
+  @media (min-width: 480px) {
+    margin: 0;
+  }
   > span {
     display: flex;
     justify-content: space-evenly;
@@ -44,7 +52,6 @@ export const Bet = styled.div`
       color: rgba(255, 255, 255, 0.8);
       background-color: rgba(255, 255, 255, 0.08);
       width: 100%;
-      /* border: 1px solid rgba(255, 255, 255, 0.08); */
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
       text-align: center;
@@ -57,7 +64,7 @@ export const Bet = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      min-height: 100%;
       color: rgba(255, 255, 255, 0.8);
       min-width: 37px;
       background-color: rgba(255, 255, 255, 0.08);
@@ -78,6 +85,10 @@ export const ProfitOnWin = styled.div`
   flex: 1;
   flex-direction: column;
   padding: 0px 8px;
+  margin-bottom: 10px;
+  @media (min-width: 480px) {
+    margin: 0;
+  }
   input {
     padding: 11px 10px;
     font-weight: 600;
@@ -104,30 +115,41 @@ export const Title = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
   margin-bottom: 13px;
+  @media (min-width: 480px) {
+    flex-direction: row;
+  }
 `;
 
 export const WrapperTwo = styled.div`
   display: flex;
+  flex-direction: column;
   width: calc(100% - 16px);
   background-color: rgba(255, 255, 255, 0.08);
   padding: 10px 5px;
   border-radius: 3px;
+  @media (min-width: 480px) {
+    flex-direction: row;
+  }
 `;
 
 export const RollOver = styled.div`
   display: flex;
   flex: 1;
-  margin: 0px 8px;
   flex-direction: column;
+  margin: 0px 8px 6px 8px;
+  @media (min-width: 480px) {
+    margin: 0px 8px;
+  }
   span {
     position: relative;
     display: flex;
     align-items: center;
     input {
       text-align: center;
-      padding: 10px;
+      padding: 10px 5px;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.8);
       width: 100%;
@@ -150,8 +172,11 @@ export const RollOver = styled.div`
 export const Payout = styled.div`
   display: flex;
   flex: 1;
-  margin: 0px 8px;
   flex-direction: column;
+  margin: 0px 8px 6px 8px;
+  @media (min-width: 480px) {
+    margin: 0px 8px;
+  }
   span {
     position: relative;
     display: flex;
@@ -180,8 +205,11 @@ export const Payout = styled.div`
 export const WinChance = styled.div`
   display: flex;
   flex: 1;
-  margin: 0px 8px;
   flex-direction: column;
+  margin: 0px 8px 6px 8px;
+  @media (min-width: 480px) {
+    margin: 0px 8px;
+  }
   span {
     position: relative;
     display: flex;

@@ -5,8 +5,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 20px;
-  left: -60px;
+  bottom: 30px;
+  right: 30px;
   height: 40px;
   width: 40px;
   color: #fff;

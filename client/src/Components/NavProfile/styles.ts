@@ -32,6 +32,12 @@ export const Wrapper = styled.div`
   }
   > div {
     height: 40px;
+    button {
+      display: block;
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
   }
 `;
 

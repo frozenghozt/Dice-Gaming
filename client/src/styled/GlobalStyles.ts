@@ -43,7 +43,7 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: #1f2236;
+    background: rgba(0, 0, 0, 0);
   }
 
   ::-webkit-scrollbar {

@@ -8,6 +8,7 @@ import LoadingPage from "./Components/LoadingPage/LoadingPage";
 import Header from "./Components/Header/Header";
 import Body from "./Components/Body/Body";
 import Chat from "./Components/Chat/Chat";
+import ChatButton from "./Components/ChatButton/ChatButton";
 
 import UserContext from "./context/UserContext";
 import SocketContext from "./context/SocketContext";
@@ -88,8 +89,8 @@ const App: React.FC = () => {
               <AppWrapper>
                 <Header />
                 <StructureWrapper>
-                  <Body />
-                  {isChatOpen ? <Chat chatHandler={chatOpener} /> : null}
+                  <Body chatHandler={chatOpener} />
+                  <Chat chatHandler={chatOpener} isOpen={isChatOpen} />
                 </StructureWrapper>
               </AppWrapper>
             )}
