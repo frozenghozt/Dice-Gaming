@@ -1,4 +1,4 @@
-## Dice Gaming (React + Node + MongoDB)
+## Dice Gaming (Typescript + React + Express + Node + MongoDB)
 
 Live webapp: https://dicebet.herokuapp.com/
 
